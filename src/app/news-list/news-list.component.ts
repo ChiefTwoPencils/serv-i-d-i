@@ -10,6 +10,7 @@ export class NewsListComponent implements OnInit {
 
   newsItems : News[];
   selectedNewsId: number = 0;
+  searchText: string;
 
   constructor(private newsSrvc: NewsService) { }
 
