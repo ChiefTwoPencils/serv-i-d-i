@@ -14,7 +14,12 @@ export class NewsListComponent implements OnInit {
   constructor(private newsSrvc: NewsService) { }
 
   ngOnInit() {
-    this.newsItems = this.newsSrvc.getNewsItems();
+    this.newsSrvc
+      .getNewsItems()
+      .subscribe(
+        news => this.newsItems = news,
+        error => alert("Sorry, There was a problem loading the data.")
+      );
   }
 
   expandNews(id: number) {
